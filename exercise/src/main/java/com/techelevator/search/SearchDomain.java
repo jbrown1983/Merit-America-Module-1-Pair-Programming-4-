@@ -54,10 +54,23 @@ public class SearchDomain {
 	private List<String> buildDomain() throws SearchDomainException {
 		List<String> files = new ArrayList<>();
 		// Step Three: Complete the buildDomain method
+		File dir = new File(folder);
+		if (dir.isDirectory()) {
+			for (File file : dir.listFiles()) {
+				if (file.isFile()) {
+					try {
+						files.add(file.getCanonicalPath());
+					} catch (IOException e) {
+						throw new SearchDomainException("Exception adding '" + file.getName() + "' to '" + folder + "'. " + e.getMessage());
+					}
 
-
-			
-		return files;
+				}
+			}
+		}
+			else {
+		throw new SearchDomainException("'" + folder + "' is not a valid folder.");
 	}
+	return files;
+  }
 	
 }
