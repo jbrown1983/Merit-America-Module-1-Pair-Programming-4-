@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 public class TELog {
 
     public static void log(String message) {
-        File logFile = new File("logs", "search.log");
+        File logFile = new File("C:/Users/jenbr/Desktop/module-1-pair-programming-4/exercise/logs", "search.log");
 
         try {
             try (PrintWriter pw = new PrintWriter(new FileOutputStream(logFile, true))) {
@@ -17,6 +17,8 @@ public class TELog {
             } catch (FileNotFoundException e) {
                 throw new TELogException(e.getLocalizedMessage());
             }
+        } finally {
+
         }
     }
 }

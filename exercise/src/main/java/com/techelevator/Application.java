@@ -18,7 +18,7 @@ public class Application {
 			TELog.log("Search Application Started");
 
 			// Step Four: Instantiate a Search Domain
-			SearchDomain sd = new SearchDomain("data");
+			SearchDomain sd = new SearchDomain("C:/Users/jenbr/Desktop/module-1-pair-programming-4/exercise/data");
 			TELog.log("Indexed files:\n" + sd.toString());
 
 			// Step Six: Single word search
