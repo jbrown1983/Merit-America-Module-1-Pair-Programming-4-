@@ -7,20 +7,16 @@ import java.io.PrintWriter;
 
 
 public class TELog {
-    public static  void log(String message) {
 
-       // File logger = new File("logs/search.log");
+    public static void log(String message) {
+        File logFile = new File("logs", "search.log");
 
         try {
-            PrintWriter pw = new PrintWriter(new FileOutputStream("log/search.log",true));
-            pw.println(message);
-            pw.close();
-        } catch (FileNotFoundException e) {
-            throw new TELogException(e.getLocalizedMessage());
+            try (PrintWriter pw = new PrintWriter(new FileOutputStream(logFile, true))) {
+                pw.println(message);
+            } catch (FileNotFoundException e) {
+                throw new TELogException(e.getLocalizedMessage());
+            }
         }
-
     }
-
-
-
 }
